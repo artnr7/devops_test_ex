@@ -5,6 +5,12 @@ docker compose up --build // foreground
 docker compose up -d --build // background
 ```
 
+Или make
+
+```
+make upb
+```
+
 ## Как проверить результат?
 
 ```
@@ -30,3 +36,10 @@ curl http://localhost
 ```
 docker compose down
 ```
+
+Или make
+
+```
+make down
+```
+

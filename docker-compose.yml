@@ -2,7 +2,7 @@ services:
   backend:
     build: backend/
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8080/ || exit 1"]
+      test: ["CMD-SHELL", "curl -f http://localhost:${BACKEND_PORT}/ || exit 1"]
       start_period: 10s
       interval: 30s
       timeout: 10s
@@ -10,9 +10,9 @@ services:
     restart: unless-stopped
   
   nginx:
-    image: nginx:1.29.4
+    image: nginx:${NGINX_VERSION}
     ports:
-      - "80:80"
+      - "${HOST_PORT}:${NGINX_PORT}"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
     depends_on:
