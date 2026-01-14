@@ -4,20 +4,16 @@ WORKDIR /app_build
 
 COPY ./http_go/ .
 
-# RUN go mod download
-
-# RUN go build -v -o main .
-
 RUN CGO_ENABLED=0 go build -o main .
 
 # --- #
 
- FROM alpine:latest AS backend
+FROM alpine:latest AS backend
 
- WORKDIR /backend
+WORKDIR /backend
 
- COPY --from=app_builder /app_build/main .
+COPY --from=app_builder /app_build/main .
 
- EXPOSE 8080
+EXPOSE 8080
 
- ENTRYPOINT ["./main"]
+ENTRYPOINT ["./main"]
