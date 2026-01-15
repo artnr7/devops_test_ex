@@ -9,6 +9,7 @@ docker compose up -d --build // background
 
 ```
 make upb
+make up
 ```
 
 ## Как проверить результат?
