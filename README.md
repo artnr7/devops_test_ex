@@ -8,8 +8,8 @@ docker compose up -d --build // background
 Или make
 
 ```
-make upb
-make up
+make upb // background w/ build
+make up // background w/o build
 ```
 
 ## Как проверить результат?
